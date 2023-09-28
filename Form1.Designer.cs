@@ -12,6 +12,7 @@
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -39,6 +40,8 @@
             clientsToolStripMenuItem = new ToolStripMenuItem();
             bsAuteurs = new BindingSource(components);
             dgvAuteurs = new DataGridView();
+            cbClients = new ComboBox();
+            bsClients2 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)bsClients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvClients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommandes).BeginInit();
@@ -46,12 +49,13 @@
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bsAuteurs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvAuteurs).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsClients2).BeginInit();
             SuspendLayout();
             // 
             // dgvClients
             // 
             dgvClients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClients.Location = new Point(44, 27);
+            dgvClients.Location = new Point(106, 275);
             dgvClients.Name = "dgvClients";
             dgvClients.RowTemplate.Height = 25;
             dgvClients.Size = new Size(253, 143);
@@ -60,7 +64,7 @@
             // dgvCommandes
             // 
             dgvCommandes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCommandes.Location = new Point(351, 27);
+            dgvCommandes.Location = new Point(81, 73);
             dgvCommandes.Name = "dgvCommandes";
             dgvCommandes.RowTemplate.Height = 25;
             dgvCommandes.Size = new Size(283, 143);
@@ -96,17 +100,36 @@
             // dgvAuteurs
             // 
             dgvAuteurs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAuteurs.Location = new Point(161, 219);
+            dgvAuteurs.Location = new Point(396, 284);
             dgvAuteurs.Name = "dgvAuteurs";
             dgvAuteurs.RowTemplate.Height = 25;
             dgvAuteurs.Size = new Size(287, 134);
             dgvAuteurs.TabIndex = 3;
+            dgvAuteurs.CellContentClick += dgvAuteurs_CellContentClick;
+            // 
+            // cbClients
+            // 
+            cbClients.AccessibleDescription = " ";
+            cbClients.AccessibleName = "";
+            cbClients.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbClients.FormattingEnabled = true;
+            cbClients.Location = new Point(81, 44);
+            cbClients.Name = "cbClients";
+            cbClients.Size = new Size(121, 23);
+            cbClients.TabIndex = 4;
+            cbClients.Tag = "";
+            cbClients.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // bsClients2
+            // 
+            bsClients2.CurrentChanged += bsClients2_CurrentChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbClients);
             Controls.Add(dgvAuteurs);
             Controls.Add(dgvCommandes);
             Controls.Add(dgvClients);
@@ -123,6 +146,7 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)bsAuteurs).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvAuteurs).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsClients2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,5 +163,7 @@
         private ToolStripMenuItem clientsToolStripMenuItem;
         private BindingSource bsAuteurs;
         private DataGridView dgvAuteurs;
+        private ComboBox cbClients;
+        private BindingSource bsClients2;
     }
 }

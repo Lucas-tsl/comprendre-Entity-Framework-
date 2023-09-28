@@ -13,5 +13,9 @@ public partial class Client
 
     public string? Adrcli { get; set; }
 
+    public string Emailcli { get; set; } = null!;
+
+    public string Tel { get; set; } = null!;
+
     public virtual ICollection<Commande> Commandes { get; set; } = new List<Commande>();
 }

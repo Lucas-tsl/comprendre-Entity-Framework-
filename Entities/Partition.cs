@@ -11,6 +11,10 @@ public partial class Partition
 
     public int? Prixpart { get; set; }
 
+    public int? Numstyle { get; set; }
+
+    public virtual Style? NumstyleNavigation { get; set; }
+
     public virtual ICollection<Auteur> Numauts { get; set; } = new List<Auteur>();
 
     public virtual ICollection<Commande> Numcdes { get; set; } = new List<Commande>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,10 @@ namespace TP_1.Entities
 
     internal static class Modele
     {
-        private static Tp1Context monModel;
+        private static BdPartitionsContext monModel;
         public static void init()
         {
-            monModel = new Tp1Context();
+            monModel = new BdPartitionsContext();
 
         }
 
@@ -22,12 +23,19 @@ namespace TP_1.Entities
             {
                 return monModel.Clients.ToList();
             }
-        
 
-    public static List<Commande> listeCommandes()
-            {
-                return monModel.Commandes.ToList();
-            }
+
+        public static List<Commande> listeCommandes()
+        {
+            return monModel.Commandes.Include(a => a.NumcliNavigation).ToList();
+        }
+        public static List<Commande> listeCommandesParClient(int idClient)
+        {
+            List<Commande> lesCommandes = monModel.Commandes.Where(p => p.Numcli ==
+           idClient).Include(p => p.NumcliNavigation).ToList();
+            return lesCommandes;
+        }
+
 
         public static List<Auteur> listeAuteurs()
         {
