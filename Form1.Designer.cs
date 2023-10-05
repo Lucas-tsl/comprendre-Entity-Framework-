@@ -42,6 +42,8 @@
             dgvAuteurs = new DataGridView();
             cbClients = new ComboBox();
             bsClients2 = new BindingSource(components);
+            btnForm2 = new Button();
+            fileSystemWatcher1 = new FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)bsClients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvClients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommandes).BeginInit();
@@ -50,12 +52,13 @@
             ((System.ComponentModel.ISupportInitialize)bsAuteurs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvAuteurs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsClients2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
             // 
             // dgvClients
             // 
             dgvClients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClients.Location = new Point(106, 275);
+            dgvClients.Location = new Point(510, 70);
             dgvClients.Name = "dgvClients";
             dgvClients.RowTemplate.Height = 25;
             dgvClients.Size = new Size(253, 143);
@@ -64,18 +67,19 @@
             // dgvCommandes
             // 
             dgvCommandes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCommandes.Location = new Point(81, 73);
+            dgvCommandes.Location = new Point(30, 70);
             dgvCommandes.Name = "dgvCommandes";
             dgvCommandes.RowTemplate.Height = 25;
             dgvCommandes.Size = new Size(283, 143);
             dgvCommandes.TabIndex = 1;
+            dgvCommandes.CellContentClick += dgvCommandes_CellContentClick;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, commandeToolStripMenuItem, clientsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(977, 24);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -100,7 +104,7 @@
             // dgvAuteurs
             // 
             dgvAuteurs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAuteurs.Location = new Point(396, 284);
+            dgvAuteurs.Location = new Point(510, 330);
             dgvAuteurs.Name = "dgvAuteurs";
             dgvAuteurs.RowTemplate.Height = 25;
             dgvAuteurs.Size = new Size(287, 134);
@@ -113,7 +117,7 @@
             cbClients.AccessibleName = "";
             cbClients.DropDownStyle = ComboBoxStyle.DropDownList;
             cbClients.FormattingEnabled = true;
-            cbClients.Location = new Point(81, 44);
+            cbClients.Location = new Point(341, 27);
             cbClients.Name = "cbClients";
             cbClients.Size = new Size(121, 23);
             cbClients.TabIndex = 4;
@@ -124,11 +128,28 @@
             // 
             bsClients2.CurrentChanged += bsClients2_CurrentChanged;
             // 
+            // btnForm2
+            // 
+            btnForm2.Cursor = Cursors.Hand;
+            btnForm2.Location = new Point(70, 236);
+            btnForm2.Name = "btnForm2";
+            btnForm2.Size = new Size(184, 23);
+            btnForm2.TabIndex = 5;
+            btnForm2.Text = "géré une commande ?";
+            btnForm2.UseVisualStyleBackColor = true;
+            btnForm2.Click += button1_Click;
+            // 
+            // fileSystemWatcher1
+            // 
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(977, 526);
+            Controls.Add(btnForm2);
             Controls.Add(cbClients);
             Controls.Add(dgvAuteurs);
             Controls.Add(dgvCommandes);
@@ -147,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)bsAuteurs).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvAuteurs).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsClients2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,5 +187,7 @@
         private DataGridView dgvAuteurs;
         private ComboBox cbClients;
         private BindingSource bsClients2;
+        private Button btnForm2;
+        private FileSystemWatcher fileSystemWatcher1;
     }
 }

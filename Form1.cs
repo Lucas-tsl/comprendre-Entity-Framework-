@@ -23,7 +23,7 @@ namespace TP_1
                 x.Datecde,
                 x.NumcliNavigation.Nomcli,
                 x.NumcliNavigation.Prenomcli
-                
+
             });
             dgvCommandes.DataSource = bsCommandes;
 
@@ -32,8 +32,11 @@ namespace TP_1
             cbClients.DisplayMember = "nomComplet";
             /*bsClients2.DataSource = Modele.listeClients();
             cbClients.DataSource = bsClients2;*/
-            bsClients2.DataSource = (Modele.listeClients()).Select(x => new {
-                x.Numcli,nomComplet = x.Nomcli + " " + x.Prenomcli, x.Emailcli
+            bsClients2.DataSource = (Modele.listeClients()).Select(x => new
+            {
+                x.Numcli,
+                nomComplet = x.Nomcli + " " + x.Prenomcli,
+                x.Emailcli
             });
             cbClients.DataSource = bsClients2;
 
@@ -76,6 +79,17 @@ namespace TP_1
             })
             .OrderBy(x => x.Datecde);
             dgvCommandes.DataSource = bsCommandes;
+        }
+
+        private void dgvCommandes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
         }
     }
 }
